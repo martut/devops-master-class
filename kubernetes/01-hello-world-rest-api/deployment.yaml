@@ -6,7 +6,8 @@ metadata:
   name: hello-world-rest-api
   namespace: default
 spec:
-  replicas: 2
+  replicas: 3
+  minReadySeconds: 45
   selector:
     matchLabels:
       app: hello-world-rest-api
@@ -21,7 +22,7 @@ spec:
         app: hello-world-rest-api
     spec:
       containers:
-      - image: in28min/hello-world-rest-api:0.0.1.RELEASE
+      - image: in28min/hello-world-rest-api:0.0.3.RELEASE
         imagePullPolicy: IfNotPresent
         name: hello-world-rest-api
       restartPolicy: Always
