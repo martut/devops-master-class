@@ -6,7 +6,7 @@ metadata:
   name: currency-conversion
   namespace: default
 spec:
-  replicas: 2 #CHANGE
+  replicas: 1 #CHANGE
   minReadySeconds: 45
   selector:
     matchLabels:
@@ -25,9 +25,9 @@ spec:
       - image: in28min/currency-conversion:0.0.1-RELEASE #CHANGE
         imagePullPolicy: IfNotPresent
         name: currency-conversion
-        # env:
-        #   - name: CURRENCY_EXCHANGE_SERVICE_HOST
-        #     value: http://currency-exchange
+        env:
+          - name: CURRENCY_EXCHANGE_SERVICE_HOST
+            value: http://currency-exchange
         
         #     valueFrom: 
         #       configMapKeyRef:
